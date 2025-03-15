@@ -26,7 +26,7 @@ IF NOT "%folderName%"=="" (
     set outputDir=%defaultDir%
 )
 
-yt-dlp.exe -P "%outputDir%" -S ext:mp4:m4a %input%
+yt-dlp.exe  --download-archive downloaded.txt -P "%outputDir%" -S ext:mp4:m4a %input%
 pause
 goto BEGIN
 
@@ -57,6 +57,6 @@ IF NOT "%folderName%"=="" (
     set outputDir=%defaultDir%
 )
 
-yt-dlp.exe -P "%outputDir%" -x --audio-format %audioFormat% --audio-quality 0 %input%
+yt-dlp.exe --download-archive downloadedAudio.txt -P "%outputDir%" -x --audio-format %audioFormat% --audio-quality 0 %input%
 pause
 goto BEGIN
