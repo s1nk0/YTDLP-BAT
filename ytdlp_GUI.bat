@@ -26,7 +26,8 @@ IF NOT "%folderName%"=="" (
     set outputDir=%defaultDir%
 )
 
-yt-dlp.exe  --download-archive downloaded.txt -P "%outputDir%" -S ext:mp4:m4a %input%
+yt-dlp.exe --download-archive downloaded.txt -P "%outputDir%" -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" --merge-output-format mp4 --no-post-overwrites %input%
+
 pause
 goto BEGIN
 
@@ -57,6 +58,7 @@ IF NOT "%folderName%"=="" (
     set outputDir=%defaultDir%
 )
 
-yt-dlp.exe --download-archive downloadedAudio.txt -P "%outputDir%" -x --audio-format %audioFormat% --audio-quality 0 %input%
+yt-dlp.exe --download-archive downloadedAudio.txt -P "%outputDir%" -x --audio-format %audioFormat% --audio-quality 0 --no-post-overwrites -v %input%
+
 pause
 goto BEGIN
