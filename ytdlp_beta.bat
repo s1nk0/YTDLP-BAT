@@ -1,6 +1,10 @@
 @echo off
 title yt-dlp GUI - Video Downloader
 
+:: === Set path to yt-dlp executable here ===
+set "YTDLP_PATH=yt-dlp.exe"
+
+:: === Main Menu ===
 :menu
 cls
 echo ================================
@@ -26,19 +30,19 @@ goto menu
 :single
 cls
 set /p URL="Enter the video URL: "
-yt-dlp.exe --download-archive downloaded.txt -o "%folder%\%%(title)s.%%(ext)s" %URL%
+"%YTDLP_PATH%" --download-archive downloaded.txt -o "%folder%\%%(title)s.%%(ext)s" %URL%
 goto end
 
 :audio
 cls
 set /p URL="Enter the video URL: "
-yt-dlp.exe --download-archive downloaded.txt -x --audio-format mp3 -o "%folder%\%%(title)s.%%(ext)s" %URL%
+"%YTDLP_PATH%" --download-archive downloaded.txt -x --audio-format mp3 -o "%folder%\%%(title)s.%%(ext)s" %URL%
 goto end
 
 :playlist
 cls
 set /p URL="Enter the playlist URL: "
-yt-dlp.exe --yes-playlist --download-archive downloaded.txt -o "%folder%\%%(playlist_index)03d - %%(title)s.%%(ext)s" %URL%
+"%YTDLP_PATH%" --yes-playlist --download-archive downloaded.txt -o "%folder%\%%(playlist_index)03d - %%(title)s.%%(ext)s" %URL%
 goto end
 
 :end
