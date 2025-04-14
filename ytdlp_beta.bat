@@ -49,3 +49,4 @@ goto end
 echo.
 echo Download complete!
 pause
+goto menu
